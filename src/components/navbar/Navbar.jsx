@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
-import Navbar from './components/navbar/Navbar';
 
-class App extends Component {
+class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -11,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Navbar />
+        <div>Navigation</div>
         <div className="profile-info">
           <div className="profile-name">Artist Name</div>
         </div>
@@ -20,4 +19,4 @@ class App extends Component {
   }
 }
 
-export default hot(module)(App);
+export default hot(module)(NavBar);
