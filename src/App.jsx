@@ -11,7 +11,13 @@ const CORS = "https://cors-anywhere.herokuapp.com/";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      artists: [],
+      albums: [],
+      tracks: [],
+      albumSelected: null,
+      artistSelected: null
+    };
   }
 
   render() {
