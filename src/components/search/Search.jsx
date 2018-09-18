@@ -10,9 +10,9 @@ class SearchBar extends Component {
     };
   }
 
-  onChangeTerm(term) {
+  onChangeTerm({ term }) {
     this.setState({ term });
-    this.props.onChangeTerm(term);
+    this.props.onChangeTerm({ term });
   }
 
   render() {
@@ -29,7 +29,8 @@ class SearchBar extends Component {
   }
 }
 SearchBar.PropTypes = {
-  term: PropTypes.string,
+  term: PropTypes.string.isRequired,
+  onChangeTerm: PropTypes.string.isRequired,
 };
 
 export default SearchBar;
