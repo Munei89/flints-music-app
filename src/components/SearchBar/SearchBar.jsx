@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Input from '@material-ui/core/Input';
-import Grid from '@material-ui/core/Grid';
+import Icon from '@material-ui/core/Icon';
+import Button from '@material-ui/core/Button';
+
 
 
 class SearchBar extends Component {
@@ -20,10 +22,16 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <input className="form-control searchbar"
-        value={this.state.term}
-        onChange={(event) => this.onChangeTerm(event.target.value)}
-        placeholder="Search for an artist..."/>
+        <Input
+          value={this.state.term}
+          onChange={(event) => this.onChangeTerm(event.target.value)}
+          inputProps={{
+            'aria-label': 'Description',
+          }}
+        />
+        <Button variant="contained" size="small" aria-label="Add" onClick={(event) => this.onChangeTerm(event.target.value)}>
+          Search
+        </Button>
       </div>
     );
   }

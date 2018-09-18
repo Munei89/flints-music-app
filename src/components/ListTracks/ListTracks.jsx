@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
 import Track from '../Track/Track.jsx';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import SkipNextIcon from '@material-ui/icons/SkipNext';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 class ListTracks extends Component {
   constructor(props) {
@@ -13,13 +23,10 @@ class ListTracks extends Component {
   }
 
   dispTracks() {
-    if (typeof this.props.list !== 'undefined')
-    {
+    if (typeof this.props.list !== 'undefined') {
       return this.props.list.map(track => {
         return (
-          <div>
-            <Track onTrackSelected={track => this.play(track)} key={track.id} track={track}/>
-          </div>
+          <Track onTrackSelected={track => this.play(track)} key={track.id} track={track} />
         );
       });
     }
@@ -33,11 +40,11 @@ class ListTracks extends Component {
 
   render() {
     return (
-      <div>
-        <ul className="column">
-          {this.dispTracks()}
-        </ul>
-      </div>
+      <Table>
+        <TableBody>
+            {this.dispTracks()}
+        </TableBody>
+      </Table>
     );
   }
 }

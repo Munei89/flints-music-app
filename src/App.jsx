@@ -108,12 +108,12 @@ class App extends Component {
           </a>
           :
           (
-            <div className="container">
+          <div>
               <SearchBar onChangeTerm={(term) => this.SearchDeezer(term)} />
               <ListArtists onArtistSelect={(artist) => this.getAlbum(artist)} list={this.state.artists} artistSelected={this.state.artistSelected} />
               <ListAlbums onAlbumSelect={(album) => this.getTracks(album)} list={this.state.albums} albumSelected={this.state.albumSelected} />
               <ListTracks list={this.state.tracks} />
-            </div>
+          </div>
           )
         }
       </div>

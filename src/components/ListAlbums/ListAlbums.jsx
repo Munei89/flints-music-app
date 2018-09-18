@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Album from '../Album/Album.jsx';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
-import ListItemText from '@material-ui/core/ListItemText';
+import Grid from '@material-ui/core/Grid';
 
 class ListAlbums extends Component {
   dispAlbums() {
@@ -10,16 +8,16 @@ class ListAlbums extends Component {
       return this.props.list.map(album => {
         if (this.props.albumSelected !== null && this.props.albumSelected.id == album.id) {
           return (
-            <ListItem button>
-              <ListItemText primary={<Album onAlbumSelect={this.props.onAlbumSelect} key={album.id} album={album} />} />
-            </ListItem>
+            <Grid item md={3} key={album.id}>
+              <Album onAlbumSelect={this.props.onAlbumSelect} album={album} />
+            </Grid>
           );
         }
         else {
           return (
-            <ListItem button>
-              <ListItemText primary={<Album onAlbumSelect={this.props.onAlbumSelect} key={album.id} album={album} />} />
-            </ListItem>
+            <Grid item md={3} key={album.id}>
+              <Album onAlbumSelect={this.props.onAlbumSelect} album={album} />
+            </Grid>
           );
         }
       });
@@ -28,11 +26,9 @@ class ListAlbums extends Component {
 
   render() {
     return (
-      <List component="nav">
-
+      <Grid container spacing={8}>
         {this.dispAlbums()}
-
-      </List>
+      </Grid>
     );
   }
 }

@@ -20,7 +20,7 @@ class Artist extends Component {
 
   render() {
     return (
-        <Card className="card" key={this.state.artist.id}>
+        <Card className="card" key={this.state.artist.id} onClick={() => this.props.onArtistSelect(this.state.artist)}>
           <CardActionArea>
             <CardMedia
               component="img"
@@ -35,7 +35,7 @@ class Artist extends Component {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small" color="primary" onClick={() => this.props.onArtistSelect(this.state.artist)}>
+            <Button size="small" color="primary" key={this.state.artist.id} onClick={() => this.props.onArtistSelect(this.state.artist)}>
               View
             </Button>
           </CardActions>
