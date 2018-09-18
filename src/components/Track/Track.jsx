@@ -14,7 +14,6 @@ class Track extends Component {
     return (
       <TableRow onClick={event => this.props.onTrackSelected(this.state.track)} key={this.state.track.id}>
         <TableCell>{this.state.track.title}</TableCell>
-        <TableCell>Controls</TableCell>
       </TableRow>
     );
   }

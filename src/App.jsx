@@ -6,6 +6,9 @@ import ListTracks from './components/ListTracks/ListTracks';
 import SearchBar from './components/SearchBar/SearchBar';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
 
 const APP_ID = '300564';
 const REDIRECT_URI = 'http://localhost:8080/';
@@ -99,24 +102,45 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App container">
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        md={6}
+      >
+      <Grid item md={12}
+              direction="row"
+              justify="center"
+              alignItems="center"
+            >
+        <Typography variant="display3" gutterBottom>
+          Flint Music App
+        </Typography>
+      </Grid>
         {(this.token === '') ?
-          <a href={this.url}>
-            <Button variant="contained" color="primary">
-              Login
+          <Grid item md={12}
+              direction="row"
+              justify="center"
+              alignItems="center"
+            >
+              <a href={this.url}>
+              <Button variant="contained" color="primary">
+                Deezer Login
                 </Button>
-          </a>
+            </a>
+          </Grid>
           :
           (
-          <div>
+            <div className="container">
               <SearchBar onChangeTerm={(term) => this.SearchDeezer(term)} />
               <ListArtists onArtistSelect={(artist) => this.getAlbum(artist)} list={this.state.artists} artistSelected={this.state.artistSelected} />
               <ListAlbums onAlbumSelect={(album) => this.getTracks(album)} list={this.state.albums} albumSelected={this.state.albumSelected} />
               <ListTracks list={this.state.tracks} />
-          </div>
+            </div>
           )
         }
-      </div>
+      </Grid>
     );
   }
 }
