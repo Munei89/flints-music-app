@@ -9,13 +9,6 @@
     "format": "prettier --write 'packages/**/*.js'",
     "test": "jest --watchAll --coverage"
   },
-  "lint-staged": {
-    "*.{js,jsx,css,md}": [
-      "prettier --write --single-quote",
-      "eslint --fix",
-      "git add"
-    ]
-  },
   "jest": {
     "automock": false,
     "testEnvironment": "node",

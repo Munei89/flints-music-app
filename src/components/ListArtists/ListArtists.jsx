@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Grid from '@material-ui/core/Grid';
 import Artist from '../Artist/Artist.jsx';
 
 class ListArtists extends Component {
@@ -9,15 +10,15 @@ class ListArtists extends Component {
 
         if (this.props.artistSelected !== null && this.props.artistSelected.id === artist.id) {
           return (
-            <div className="selected">
-              <Artist onArtistSelect={this.props.onArtistSelect} key={artist.id} artist={artist}/>
-            </div>
+            <Grid key={artist.id} item md={4}>
+              <Artist onArtistSelect={this.props.onArtistSelect} artist={artist}/>
+           </Grid>
           );
         } else {
           return (
-            <div>
-              <Artist onArtistSelect={this.props.onArtistSelect} key={artist.id} artist={artist}/>
-            </div>
+            <Grid key={artist.id} item md={4}>
+              <Artist onArtistSelect={this.props.onArtistSelect} artist={artist}/>
+            </Grid>
           );
         }
       });
@@ -25,12 +26,10 @@ class ListArtists extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <ul className="column">
+    return (  
+      <Grid container spacing={16}>
           {this.dispArtists()}
-        </ul>
-      </div>
+      </Grid>          
     );
   }
 }

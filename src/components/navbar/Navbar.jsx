@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
-import SearchBar from '../search/Search';
+import SearchBar from '../SearchBar/SearchBar';
 
 class NavBar extends Component {
   constructor(props) {

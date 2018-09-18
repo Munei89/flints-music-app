@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TableRow from '@material-ui/core/TableRow';
 
 class Track extends Component {
   constructor(props) {
@@ -11,9 +12,9 @@ class Track extends Component {
 
   render() {
     return (
-      <li onClick={event => this.props.onTrackSelected(this.state.track)} className="list-group-item" key={this.state.track.id}>
-        {this.state.track.title}
-      </li>
+      <TableRow onClick={event => this.props.onTrackSelected(this.state.track)} key={this.state.track.id}>
+        <TableCell>{this.state.track.title}</TableCell>
+      </TableRow>
     );
   }
 }
