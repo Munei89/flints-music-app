@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import ListAlbums from './components/ListAlbums/ListAlbums';
+import ListArtists from './components/ListArtists/ListArtists';
 import ListTracks from './components/ListTracks/ListTracks';
-import Navbar from './components/Navbar/Navbar';
+import SearchBar from './components/SearchBar/SearchBar';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
 
 const APP_ID = '300564';
-const REDIRECT_URI = 'http://localhost:3000';
+const REDIRECT_URI = 'http://localhost:8080/';
 const CORS = "https://cors-anywhere.herokuapp.com/";
 
 class App extends Component {
@@ -31,7 +34,7 @@ class App extends Component {
       this.token = this.token_array[0][1];
   }
 
-  DEEZERSearch(term) {
+  SearchDeezer(term) {
     fetch(
       `${CORS}http://api.deezer.com/search/artist?q=${term}`,
       {
@@ -96,16 +99,22 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App container">
         {(this.token === '') ?
-          <a href={this.url}><button>Login</button></a>
+          <a href={this.url}>
+            <Button variant="contained" color="primary">
+              Login
+                </Button>
+          </a>
           :
-          (<div>
-            <SearchBar onChangeTerm={(term) => this.DEEZERSearch(term)} />
-            <ListArtists onArtistSelect={(artist) => this.getAlbum(artist)} list={this.state.artists} artistSelected={this.state.artistSelected} />
-            <ListAlbums onAlbumSelect={(album) => this.getTracks(album)} list={this.state.albums} albumSelected={this.state.albumSelected} />
-            <ListTracks list={this.state.tracks} />
-          </div>)
+          (
+            <div className="container">
+              <SearchBar onChangeTerm={(term) => this.SearchDeezer(term)} />
+              <ListArtists onArtistSelect={(artist) => this.getAlbum(artist)} list={this.state.artists} artistSelected={this.state.artistSelected} />
+              <ListAlbums onAlbumSelect={(album) => this.getTracks(album)} list={this.state.albums} albumSelected={this.state.albumSelected} />
+              <ListTracks list={this.state.tracks} />
+            </div>
+          )
         }
       </div>
     );
