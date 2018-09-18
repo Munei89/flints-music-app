@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
-import Navbar from './components/navbar/Navbar';
+import ListAlbums from './components/ListAlbums/ListAlbums';
+import ListTracks from './components/ListTracks/ListTracks';
+import Navbar from './components/Navbar/Navbar';
+
+const APP_ID = '300564';
+const REDIRECT_URI = 'http://localhost:3000';
+const CORS = "https://cors-anywhere.herokuapp.com/";
 
 class App extends Component {
   constructor(props) {
